@@ -1,12 +1,12 @@
 [submodule "server"]
 	path = server
-	url = https://github.com/Euro-Office/server.git
+	url = https://github.com/invergent-ai/office-server.git
 [submodule "web-apps"]
 	path = web-apps
-	url = https://github.com/Euro-Office/web-apps.git
+	url = https://github.com/invergent-ai/office-web-apps.git
 [submodule "sdkjs"]
 	path = sdkjs
-	url = https://github.com/Euro-Office/sdkjs.git
+	url = https://github.com/invergent-ai/office-sdkjs.git
 [submodule "core-fonts"]
 	path = core-fonts
 	url = https://github.com/Euro-Office/core-fonts.git
