@@ -24,7 +24,7 @@ on:
 
 jobs:
   prepare:
-    runs-on: self-hosted
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
@@ -39,7 +39,7 @@ jobs:
 
   strip:
     needs: prepare
-    runs-on: self-hosted
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     strategy:
       fail-fast: false
       matrix:

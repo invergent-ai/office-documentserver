@@ -8,7 +8,7 @@ on:
 
 jobs:
   update-submodules:
-    runs-on: self-hosted
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     permissions:
       contents: write
       pull-requests: write

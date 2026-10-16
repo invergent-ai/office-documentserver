@@ -56,7 +56,7 @@ permissions: {}
 
 jobs:
   publish:
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     permissions:
       actions: read          # download-artifact from the calling run
     # Up to 90 min waiting for the cross-repo lock plus the publish itself.
