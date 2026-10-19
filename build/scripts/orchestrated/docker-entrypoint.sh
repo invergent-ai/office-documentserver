@@ -97,6 +97,18 @@ if [[ -n "${JWT_SECRET:-}" && ${#JWT_SECRET} -lt 32 ]]; then
 fi
 
 # --------------------------------------------------------------------
+# Converter workers
+#
+# Each worker uses about 1.2 cores while it converts; the converter runs exactly this many.
+# --------------------------------------------------------------------
+CONVERTER_WORKERS="${CONVERTER_WORKERS:-1}"
+
+if [[ ! "${CONVERTER_WORKERS}" =~ ^[1-9][0-9]*$ ]]; then
+  echo "CONVERTER_WORKERS must be a whole number of at least 1, not '${CONVERTER_WORKERS}'." >&2
+  exit 1
+fi
+
+# --------------------------------------------------------------------
 # NODE_CONFIG (exported for Docs services)
 # --------------------------------------------------------------------
 export NODE_CONFIG='{
@@ -205,7 +217,7 @@ export NODE_CONFIG='{
   },
   "FileConverter": {
     "converter": {
-        "maxprocesscount": 0.001,
+        "workers": '${CONVERTER_WORKERS}',
         "maxDownloadBytes": '${FILECONVERTER_MAX_DOWNLOAD_BYTES:-524288000}',
         "inputLimits": [
           { "type": "docx;dotx;docm;dotm", "zip": { "uncompressed": "'${FILECONVERTER_INPUT_LIMIT_UNCOMPRESSED:-500MB}'", "template": "*.xml" } },
